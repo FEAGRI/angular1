@@ -11,7 +11,7 @@ gulp.task('app', ['app.html', 'app.css', 'app.js', 'app.assets'])
 
 gulp.task('app.html', function(request, response, next){
   gulp.src('app/**/*.html') // os arquivos html que estão na pasta app independente de quais sejam "**"
-    .pipe(htmlmin({ collapseWhitspace: true})) //tirar espaços em branco e deixar o html menor possível
+    .pipe(htmlmin({ collapseWhitespace: true})) //tirar espaços em branco e deixar o html menor possível
     .pipe(gulp.dest('public'))
 })
 

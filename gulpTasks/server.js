@@ -7,7 +7,7 @@ const webserver = require('gulp-webserver')
 gulp.task('server',['watch'], function(){ //antes de executar o server, vai executar o watch primeiro depois continua aqui...
   gulp.src('public').pipe(webserver({
       livereload:true,
-      port: 3000,
+      port: 4000,
       open: true
   }))
 })
