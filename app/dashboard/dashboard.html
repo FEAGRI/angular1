@@ -1,11 +1,11 @@
 
 <content-header name="Dashboard" small="Versão 1.0"></content-header> <!-- content-header é igual a contentHeader do contentHeader.js -->
 
-<section class="content">
-  <value-box grid="4" color-class="bg-green" icon-class="fa fa-bank" value="R$ 10" text="Total de Créditos"></value-box>
-  <value-box grid="4" color-class="bg-red" icon-class="fa fa-credit-card" value="R$ 10" text="Total de Déditos"></value-box>
-  <value-box grid="4" color-class="bg-blue" icon-class="fa fa-money" value="R$ 0" text="Valor Consolidado"></value-box>
-  
+<section class="content" ng-controller="DashboradCtrl as dashboard"> <!-- esto conteúdo está sendo controlado pelo DashboardController -->
+  <value-box grid="4" color-class="bg-green" icon-class="fa fa-bank" value="R$ {{ dashboard.credit | number: 2 }}" text="Total de Créditos"></value-box>
+  <value-box grid="4" color-class="bg-red" icon-class="fa fa-credit-card" value="R$ {{ dashboard.debt | number: 2 }}" text="Total de Déditos"></value-box>
+  <value-box grid="4" color-class="bg-blue" icon-class="fa fa-money" value="R$ {{ dashboard.total | number: 2 }}" text="Valor Consolidado"></value-box>
+
   <!-- <div class="col-xs-4">
       <div class="small-box bg-green">
           <div class="inner">
