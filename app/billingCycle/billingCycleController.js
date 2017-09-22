@@ -21,7 +21,8 @@
       $http.post(url, vm.billingCycle).then(function(response) {
         vm.refresh() // limpando a referencia do objeto
         msgs.addSuccess('Operação realizada com sucesso!!')
-        console.log('Sucesso!')
+        console.log
+        ('Sucesso!')
       })
       .catch(function(response){
         msgs.addError(response.data.errors)
