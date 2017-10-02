@@ -40,7 +40,7 @@
     }
 
     vm.delete = function(){
-       const deleteUrl = `${ulr}/${vm.billingCycle._id}`
+       const deleteUrl = `${url}/${vm.billingCycle._id}`
        $http.delete(deleteUrl, vm.billingCycle).then(function(response) {
          vm.refresh()
          msgs.addSuccess('Operação realizada com sucesso!!!')
