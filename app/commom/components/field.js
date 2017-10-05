@@ -8,7 +8,7 @@
       placeholder: '@',
       type:'@',
       model: "=", //  binding de 2 direções ..., tudo que alterar no controller será refletido no component e vice-versa
-      readonly: '<',
+      readonly: '<', //binding de uma direção só (parent pra dentro do component)..., a alteração que for feita no component não vai afetar no parent
     },
     controller: [
       'gridSystem',
