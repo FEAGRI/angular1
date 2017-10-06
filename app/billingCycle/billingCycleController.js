@@ -13,6 +13,7 @@
       $http.get(url).then(function(response){
         vm.billingCycle = {credits:[{}], debts: [{}]}
         vm.billingCycles = response.data
+        vm.calculateValues()
         tabs.show(vm, {tabList: true, tabCreate: true})
       })
     }
@@ -31,11 +32,13 @@
 
     vm.showTabUpdate = function(billingCycle){
       vm.billingCycle = billingCycle
+      vm.calculateValues()
       tabs.show( vm, { tabUpdate: true})
     }
 
     vm.showTabDelete = function(billingCycle){
       vm.billingCycle = billingCycle
+      vm.calculateValues()
       tabs.show(vm, { tabDelete: true})
     }
 
@@ -68,11 +71,13 @@
 
     vm.cloneCredit = function(index, {name, value}){
       vm.billingCycle.credits.splice(index +1, 0, {name, value})
+      vm.calculateValues()
     }
 
     vm.deleteCredit = (index) => {
       if(vm.billingCycle.credits.length > 1){ // para excluir pelo menos 2
         vm.billingCycle.credits.splice(index, 1)
+        vm.calculateValues()
       }
     }
 
@@ -83,14 +88,34 @@
 
     vm.cloneDebt = function(index, {name, value}){
       vm.billingCycle.debts.splice(index +1, 0, {name, value})
+      vm.calculateValues()
     }
 
     vm.deleteDebt = (index) => {
       if(vm.billingCycle.debts.length > 1){ // para excluir pelo menos 2
         vm.billingCycle.debts.splice(index, 1)
+        vm.calculateValues()
       }
     }
 
+    //Sumário
+    vm.calculateValues = function() {
+      vm.credit = 0
+      vm.debt = 0
+
+      if(vm.billingCycle) {   // prestar atenção em forEach, isNaN e parseFloat todos interferem na atualização e/ou visualização
+        vm.billingCycle.credits.forEach(function({value}) {
+          vm.credit += !value || isNaN(value) ? 0 : parseFloat(value)
+        })
+        vm.billingCycle.debts.forEach(function({value}){
+          vm.debt += !value || isNaN(value) ? 0 : parseFloat(value)
+        })
+      }
+
+      vm.total = vm.credit - vm.debt
+      // é necessário que Eu chame esse método
+      // 1o lugar dentro do método refresh lin 12
+    }
 
     vm.refresh()
 
