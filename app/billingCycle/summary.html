@@ -1,0 +1,11 @@
+<!-- consolidar créditos e débitos das listas crédito/débito do mês corrente -->
+<div class="row">
+  <!-- reutilizar componentes que já foram criados -->
+  <!-- valueBox --> <!-- as tags foram iguais ao do dashboard/dashboard.html -->
+  <value-box grid="12 4" color-class="bg-green" icon-class="fa fa-bank"
+    value="R$ {{ bcCtrl.credit | number: 2 }}" text="Total de Créditos no Mês"></value-box>
+  <value-box grid="12 4" color-class="bg-red" icon-class="fa fa-credit-card"
+    value="R$ {{ bcCtrl.debt | number: 2 }}" text="Total de Déditos no Mês"></value-box>
+  <value-box grid="12 4" color-class="bg-blue" icon-class="fa fa-money"
+    value="R$ {{ bcCtrl.total | number: 2 }}" text="Valor Consolidado no Mês"></value-box>
+</div>
