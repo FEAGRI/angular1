@@ -4,16 +4,20 @@
       <tr>
         <th>Nome</th>
         <th>Valor</th>
+        <th>Satus</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="credit in bcCtrl.billingCycle.credits">
+      <tr ng-repeat="debt in bcCtrl.billingCycle.debts">
         <td>
-            <input ng-model="credit.name" class="form-control" placeholder="Informe o Nome" ng-readonly="bcCtrl.TabDelete">
+            <input ng-model="debt.name" class="form-control" placeholder="Informe o Nome" ng-readonly="bcCtrl.TabDelete">
         </td>
         <td>
-            <input ng-model="credit.value" class="form-control" placeholder="Informe o Valor" ng-readonly="bcCtrl.TabDelete" type="number">
+            <input ng-model="debt.value" class="form-control" placeholder="Informe o Valor" ng-readonly="bcCtrl.TabDelete" type="number">
+        </td>
+        <td>
+            <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" ng-readonly="bcCtrl.TabDelete">
         </td>
         <td class="table-actions"> <!-- classe usada no template/template-custom.css -->
           <button class="btn btn-success" ng-class="{disabled: bcCtrl.TabDelete}">
