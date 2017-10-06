@@ -60,6 +60,38 @@
        })
     }
 
+    // botões das Listas de Créditos creditList.html e Débitos debtList.html
+    // Créditos
+    vm.addCredit = (index) => {
+      vm.billingCycle.credits.splice(index + 1, 0, {})
+    }
+
+    vm.cloneCredit = function(index, {name, value}){
+      vm.billingCycle.credits.splice(index +1, 0, {name, value})
+    }
+
+    vm.deleteCredit = (index) => {
+      if(vm.billingCycle.credits.length > 1){ // para excluir pelo menos 2
+        vm.billingCycle.credits.splice(index, 1)
+      }
+    }
+
+    // Débitos
+    vm.addDebt = (index) => {
+      vm.billingCycle.debts.splice(index + 1, 0, {})
+    }
+
+    vm.cloneDebt = function(index, {name, value}){
+      vm.billingCycle.debts.splice(index +1, 0, {name, value})
+    }
+
+    vm.deleteDebt = (index) => {
+      if(vm.billingCycle.debts.length > 1){ // para excluir pelo menos 2
+        vm.billingCycle.debts.splice(index, 1)
+      }
+    }
+
+
     vm.refresh()
 
   }

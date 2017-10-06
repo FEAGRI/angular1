@@ -20,14 +20,14 @@
             <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" ng-readonly="bcCtrl.TabDelete">
         </td>
         <td class="table-actions"> <!-- classe usada no template/template-custom.css -->
-          <button class="btn btn-success" ng-class="{disabled: bcCtrl.TabDelete}">
-            <i class="fa fa-plus"></i>
+          <button class="btn btn-success" ng-class="{disabled: bcCtrl.TabDelete}"
+            ng-click="bcCtrl.addDebt($index)"><i class="fa fa-plus"></i>
           </button>
-          <button class="btn btn-warning" ng-class="{disabled: bcCtrl.TabDelete}">
-            <i class="fa fa-clone"></i>
+          <button class="btn btn-warning" ng-class="{disabled: bcCtrl.TabDelete}"
+            ng-click="bcCtrl.cloneDebt($index,debt)"><i class="fa fa-clone"></i>
           </button>
-          <button class="btn btn-danger" ng-class="{disabled: bcCtrl.TabDelete}">
-            <i class="fa fa-trash-o"></i>
+          <button class="btn btn-danger" ng-class="{disabled: bcCtrl.TabDelete}"
+            ng-click="bcCtrl.deleteDebt($index)"><i class="fa fa-trash-o"></i>
           </button>
 
         </td>
