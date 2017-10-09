@@ -7,7 +7,7 @@ angular.module('primeiraApp').config([
       url: "/dashboard",
       templateUrl: "dashboard/dashboard.html" // carregará o template no "ui-view" que está dentro do index.html
     }).state('billingCycle', {
-      url: "/billingCycles",
+      url: "/billingCycles?page",
       templateUrl: "billingCycle/tabs.html"
     })
     $urlRouterProvider.otherwise('/dashboard')
