@@ -12,16 +12,16 @@
 
     vm.refresh = function(){
       const page = parseInt($location.search().page) || 1
-      $http.get(`${url}?skip=${(page -1)*5}&limit=5`).then(function(response){
+      $http.get(`${url}?skip=${(page -1)*2}&limit=2`).then(function(response){
         vm.billingCycle = {credits:[{}], debts: [{}]}
         vm.billingCycles = response.data
         vm.calculateValues()
-        tabs.show(vm, {tabList: true, tabCreate: true})
 
         $http.get(`${url}/count`).then(function(response){
-          vm.pages = Math.ceil(response.value / 5)
-          console.log('pages =', response.value)
-          console.log('pages =', vm.pages)
+          vm.pages = Math.ceil(response.data.value / 2)
+          tabs.show(vm, {tabList: true, tabCreate: true})
+          //console.log('pages =', response.value)
+          //console.log('pages =', vm.pages)
         })
 
       })
