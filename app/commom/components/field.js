@@ -14,7 +14,7 @@
       'gridSystem',
       function(gridSystem){
         this.$onInit = () => {
-          this.gridClasses - gridSystem.toCssClasses(this.grid)
+          this.gridClasses = gridSystem.toCssClasses(this.grid)
         }
       }
     ], // double mustache {{ interpolar o valor da variável e jogar aqui dentro }}
